@@ -27,6 +27,7 @@ var budgetController = (function(){
      addItem : function(type, des, val){
         var newItem, ID;
         // ID = last ID + 1
+        console.log("data.allItems[type].length  = "+data.allItems[type].length)
         if(data.allItems[type].length > 0){
             ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
         } else{
@@ -34,12 +35,16 @@ var budgetController = (function(){
         }
         if(type === 'exp'){
            newItem = new Expense(ID, des, val);
-        } else if(type === 'inc  '){
+        } else if(type === 'inc'){
            newItem = new Income(ID, des, val);
         }
         data.allItems[type].push(newItem);
         return newItem;
-     } 
+     },
+     
+     testing: function(){
+        console.log(data); 
+     }
    };
 
 })();
